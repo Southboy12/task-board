@@ -1,10 +1,26 @@
+import axios from "axios"
+const TaskDetails = ({ filter, tasks, showTasks }) => {
+  const uncompletedTask = tasks.filter((task) => task.completed !== true)
+  const completedTasks = tasks.filter((task) => task.completed === true)
 
-const TaskDetails = () => {
+  const deleteAll = async () => {
+    try {
+      await axios.delete(`http://localhost:3000/api/v1/task`)
+      showTasks()
+      alert("Task deleted")
+    } catch (error) {
+      console.log("Delete failed", error); 
+    }
+  }
   return (
     <>
-        <div className="bg-[hsl(235,_24%,_19%)] py-6 rounded-b-xl flex justify-between items-center gap-4 px-6 text-[hsl(236,_9%,_61%)] mb-8">
-            <h2>5 items left</h2>
-            <button>Clear Completed</button>
+        <div className="bg-[hsl(235,_24%,_19%)] py-6 rounded-b-xl flex justify-between items-center gap-4 px-6 text-[#9394a5] mb-8">
+          { filter === "completed" ? (
+            <h2>{`${completedTasks.length} items completed`}</h2>
+          ) : (
+            <h2>{`${uncompletedTask.length} items left`}</h2>
+          )}
+          <button onClick={deleteAll} className={`cursor-pointer ${filter === "active" ? "hidden" : ""}`}>Clear Completed</button>
         </div> 
     </>
   )
