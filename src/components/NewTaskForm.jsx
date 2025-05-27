@@ -14,7 +14,7 @@ const NewTaskForm = () => {
     if (!taskName.trim()) return;
 
     try {
-      await axios.post('http://localhost:3000/api/v1/task', { name: taskName })
+      await axios.post('https://task-board-backend-5ij1.onrender.com/api/v1/task', { name: taskName })
       setTaskName("")
     } catch (error) {
       console.log("Something went wrong");

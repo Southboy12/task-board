@@ -8,7 +8,7 @@ const Task = ({ tasks, onDelete }) => {
   const handleDelete = async (taskId) => {
 
     try {
-      await axios.delete(`http://localhost:3000/api/v1/task/${taskId}`)
+      await axios.delete(`https://task-board-backend-5ij1.onrender.com/api/v1/task/${taskId}`)
       onDelete(taskId)
       alert("Task deleted")
     } catch (error) {

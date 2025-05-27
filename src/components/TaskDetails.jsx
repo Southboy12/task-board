@@ -5,7 +5,7 @@ const TaskDetails = ({ filter, tasks, showTasks }) => {
 
   const deleteAll = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/v1/task`)
+      await axios.delete(`https://task-board-backend-5ij1.onrender.com/api/v1/task`)
       showTasks()
       alert("Task deleted")
     } catch (error) {

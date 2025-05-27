@@ -17,7 +17,7 @@ const Home = () => {
    
     const showTasks = async () => {
         try {            
-            const response = await fetch('http://localhost:3000/api/v1/task')
+            const response = await fetch('https://task-board-backend-5ij1.onrender.com/api/v1/task')
             const data = await response.json()  
             setTasks(data.data)        
         } catch (error) {

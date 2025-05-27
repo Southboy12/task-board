@@ -22,7 +22,7 @@ const EditTaskForm = () => {
       try {      
         const {
           data: { task }
-        } = await axios.get(`http://localhost:3000/api/v1/task/${id}`)
+        } = await axios.get(`https://task-board-backend-5ij1.onrender.com/api/v1/task/${id}`)
         const { name, completed, _id: taskId} = task
         setFormData({ name: name, completed: completed, taskId: taskId })
       } catch (error) {
@@ -45,7 +45,7 @@ const EditTaskForm = () => {
     e.preventDefault()
 
     try {
-      await axios.patch(`http://localhost:3000/api/v1/task/${id}`, formData)
+      await axios.patch(`https://task-board-backend-5ij1.onrender.com/api/v1/task/${id}`, formData)
       alert("Task updated")
     } catch (error) {
       console.log("Update failed", error); 
