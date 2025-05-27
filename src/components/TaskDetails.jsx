@@ -16,9 +16,9 @@ const TaskDetails = ({ filter, tasks, showTasks }) => {
     <>
         <div className="bg-[hsl(235,_24%,_19%)] py-6 rounded-b-xl flex justify-between items-center gap-4 px-6 text-[#9394a5] mb-8">
           { filter === "completed" ? (
-            <h2>{`${completedTasks.length} items completed`}</h2>
+            <h2>{`${completedTasks.length} item${completedTasks.length > 1 ? "s" : ""} completed`}</h2>
           ) : (
-            <h2>{`${uncompletedTask.length} items left`}</h2>
+            <h2>{`${uncompletedTask.length} item${uncompletedTask.length > 1 ? "s" : ""} left`}</h2>
           )}
           <button onClick={deleteAll} className={`cursor-pointer ${filter === "active" ? "hidden" : ""}`}>Clear Completed</button>
         </div> 
